@@ -1,34 +1,31 @@
-# The telegram bot token
-token: str = "123456789:ABcdefGhiJKlmnO"
+# Telegram bot token
+# IMPORTANT: use a NEW token if the old one was exposed publicly.
+token: str = "8825877138:AAEe81HJrQK0_GiaSOYn3UYxutXwQwqng4g"
 
-# A list of user ids that are allowed to use the bot, if None everyone is allowed
-whitelist: list[int] | None = None  # Example: [123456789, 987654321]
-
-# A list of user ids that are not allowed to use the bot, if None everyone is allowed
+# Optional user access control
+whitelist: list[int] | None = None
 blacklist: list[int] | None = None
 
-# The logs channel id, if none set to None
+# Logs channel (optional)
 logs: int | None = None
 
-# The maximum file size in bytes
+# Maximum file size in bytes
 max_filesize: int = 50000000
 
-# Maximum number of concurrent downloads allowed per user
+# Maximum downloads per user
 max_user_concurrent_downloads: int = 1
 
-# Maximum number of concurrent downloads allowed globally (shared across all users)
+# Maximum downloads globally
 max_global_concurrent_downloads: int = 2
 
-# How many times to retry a download on transient errors (rate limiting, network timeouts)
+# Retry settings
 max_retries: int = 3
-
-# Seconds to wait between retry attempts
 retry_delay: int = 5
 
-# The output folder for downloaded files, it gets cleared after each download
+# Download folder
 output_folder: str = "/tmp/satoru"
 
-# The allowed domains for downloading videos
+# Supported video domains
 allowed_domains: list[str] = [
     "youtube.com",
     "www.youtube.com",
@@ -49,20 +46,22 @@ allowed_domains: list[str] = [
     "www.bsky.app",
 ]
 
-# The allowed domains for downloading images via gallery-dl.
-# If None, all domains are allowed.
+# Image/gallery domains
 allowed_image_domains: list[str] | None = None
 
-# secret key used to encrypt/decrypt stores cookies
-secret_key: str = "your-secret-key"
+# Used to encrypt stored cookies
+secret_key: str = "change-this-secret-key"
 
-# this is used to solve youtube challenges, you can set it to None if you don't
-# need it or change the runtime like {"node": {"path": "node"}}
-js_runtime: dict[str, dict[str, str] | None] | None = {"bun": {"path": "bun"}}
+# YouTube challenge runtime
+js_runtime: dict[str, dict[str, str] | None] | None = {
+    "bun": {"path": "bun"}
+}
 
-# Channel to forward videos to when using the /forward command or when
-# authorized users send links in private chat. Set to None to disable.
-forward_to: int | None = None
+# ==========================================
+# YOUR TELEGRAM CHANNEL
+# ==========================================
+forward_to: int | None = -1003605888839
 
-# User IDs allowed to forward videos (used when forward_to is set)
-forward_permissions: list[int] = []
+# Only these Telegram user IDs can use the
+# "📢 Upload to Channel" button.
+forward_permissions: list[int] = [8523536642]
