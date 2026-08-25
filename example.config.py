@@ -1,31 +1,28 @@
 # Telegram bot token
-# IMPORTANT: use a NEW token if the old one was exposed publicly.
-token: str = "8825877138:AAEe81HJrQK0_GiaSOYn3UYxutXwQwqng4g"
+token: str = "YOUR_BOT_TOKEN"
 
-# Optional user access control
+# User access
 whitelist: list[int] | None = None
 blacklist: list[int] | None = None
 
-# Logs channel (optional)
+# Logs
 logs: int | None = None
 
-# Maximum file size in bytes
+# File size: 50 MB
 max_filesize: int = 50000000
 
-# Maximum downloads per user
+# Download limits
 max_user_concurrent_downloads: int = 1
-
-# Maximum downloads globally
 max_global_concurrent_downloads: int = 2
 
-# Retry settings
+# Retry
 max_retries: int = 3
 retry_delay: int = 5
 
-# Download folder
+# Output
 output_folder: str = "/tmp/satoru"
 
-# Supported video domains
+# Supported domains
 allowed_domains: list[str] = [
     "youtube.com",
     "www.youtube.com",
@@ -46,22 +43,21 @@ allowed_domains: list[str] = [
     "www.bsky.app",
 ]
 
-# Image/gallery domains
+# Gallery/image domains
 allowed_image_domains: list[str] | None = None
 
-# Used to encrypt stored cookies
-secret_key: str = "change-this-secret-key"
+# Cookie encryption key
+secret_key: str = "change-this-to-a-random-secret-key"
 
 # YouTube challenge runtime
-js_runtime: dict[str, dict[str, str] | None] | None = {
-    "bun": {"path": "bun"}
-}
+js_runtime = None
 
 # ==========================================
-# YOUR TELEGRAM CHANNEL
+# TELEGRAM CHANNEL AUTO FORWARD
 # ==========================================
+
 forward_to: int | None = -1003605888839
 
-# Only these Telegram user IDs can use the
-# "📢 Upload to Channel" button.
-forward_permissions: list[int] = [8523536642]
+forward_permissions: list[int] = [
+    8523536642
+]
